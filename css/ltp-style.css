@@ -1,0 +1,249 @@
+.ltp-box {
+    background-color: #ffffff;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    padding: 10px;
+    width: 100%;
+	position: relative;
+}
+
+.no-msg {
+    background-color: #eee;
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px;
+	color: #777;
+    line-height: 24px;
+    padding: 5px 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+	display: none;
+}
+
+.like-box {
+	position: relative;
+	margin-bottom: 20px;
+	font-size: 16px;
+}
+
+.like-box .icon-like {
+    background: rgba(0,0,0,0) url("../img/like-bg1.png") no-repeat scroll 0 0 / 100% auto;
+    border-radius: 50%;
+    box-shadow: 2px 2px 9px 0 rgba(0, 0, 0, 0.3);
+    display: inline-block;
+    height: 30px;
+    outline: 0 none;
+    position: absolute;
+    top: 0;
+    width: 30px;
+	transition: all 1s ease 0s;
+	z-index: 3;
+}
+
+.like-box:hover .icon-like {
+    box-shadow: 2px 2px 9px 0 rgba(0, 150, 0, 0.7);
+}
+
+.like-style {
+	display: block;
+	z-index: 2;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	top: 4px;
+	left: 4px;
+	position: absolute;
+	background-color: rgb(255, 0, 0);
+}
+
+.this-con, .this-and {
+	text-transform: none;
+}
+
+.like-box .like-content {
+    color: #4848d9;
+    display: inline-block;
+    padding-left: 38px;
+	line-height: 30px;
+	text-shadow: 1px 1px 1px rgba(70, 70, 70, 0.4);
+}
+
+.likeotherslink  { 
+	cursor: pointer;
+	color: #248EC2;
+	position: relative;
+	display: inline;
+}
+
+.alllistusers {
+    background: none repeat scroll 0 0 #000;
+	border-radius: 3px;
+    color: white;
+    left: -25px;
+    margin: 0;
+    min-width: 110px;
+    padding: 2px 10px;
+    position: absolute;
+    top: 25px;
+}
+
+.singleuserslist {
+	list-style: none outside none;
+}
+
+.showlittlemoreusers {
+	text-transform: capitalize;
+}
+
+.showlittlemoreusers ul.alllistusers {
+	display: none;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.arrow-up {
+    border-bottom: 5px solid black;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    top: 20px;
+    display: none;
+    height: 0;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    width: 0;
+}
+
+.black_overlay{
+	display: none;
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.7);
+	z-index: 999998;
+	filter: alpha(opacity=80);
+	cursor: pointer;
+}
+
+.white_content {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 17px 7px rgba(0, 0, 0, 0.3);
+    display: none;
+    left: 0;
+    margin: 0 auto;
+    max-width: 450px;
+    overflow: auto;
+    padding: 0;
+    position: fixed;
+    right: 0;
+    top: 25%;
+    width: 80%;
+    z-index: 999999;
+}
+
+#light > ul {
+    height: 300px;
+    overflow-y: auto;
+    padding: 0;
+	margin: 0;
+}
+
+.popupuserslist {
+    border-bottom: 1px solid #eaeaea;
+    clear: both;
+    float: left;
+    list-style: none outside none;
+    padding: 6px 0;
+	text-align: center;
+    width: 100%;
+}
+
+.popupuserslist img.avatar {
+    height: 50px;
+    width: 50px;
+	float: left;
+    margin-left: 20px;
+}
+
+.popupusersnames {
+    float: left;
+    margin: 8px 0 8px 12px;
+}
+
+.showlikemore { 
+	cursor: pointer; 
+	color: #248EC2; 
+}
+
+.likeusers {
+    display: inline-block;
+    line-height: 30px;
+    padding-left: 10px;
+    text-align: left;
+    vertical-align: top;
+	text-transform: capitalize;
+}
+
+.likebutton {
+    display: inline-block;
+	border: 0 none !important;
+    vertical-align: top;
+}
+
+.ajax-loader {
+    background: url("../img/bg_loader.gif") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-radius: 0;
+    content: " ";
+    display: block;
+    height: 32px;
+    left: 0;
+    margin: 0 auto;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    width: 32px;
+}
+
+.opac {
+	opacity: 0.3;
+}
+
+@media (max-width: 767px) {
+
+	.likeusers {
+		display: block;
+		line-height: 1.25;
+		margin: 10px 0;
+		padding-left: 0;
+	}
+
+	.no-msg {
+		border-radius: 0;
+		position: static;
+		text-align: left;
+	}
+	
+	.alllistusers {
+		left: 0;
+	}
+
+	.likeotherslink {
+		position: static;
+	}
+
+	.arrow-up {
+		left: 24px;
+		margin: 0;
+	}
+
+}
+
+.white_content > h2 {
+    padding: 10px 0 0;
+    text-align: center;
+}

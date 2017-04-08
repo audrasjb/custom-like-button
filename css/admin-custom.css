@@ -1,0 +1,30 @@
+.left-side-box {
+    background: none repeat scroll 0 0 white;
+    border-radius: 10px;
+    box-shadow: 0 0 16px 0 #ddccce inset;
+    box-sizing: border-box;
+    float: left;
+    margin-right: 3%;
+    min-width: 450px;
+    padding: 20px;
+    width: 72%;
+}
+.right-side-box {
+	min-width: 200px;
+	width: 25%;
+	float: right;
+	box-sizing: border-box;
+	padding: 10px;
+}
+.left-side-box label.main-descpn {
+	width: 25%;
+	display: inline-block;
+	font-weight: bold;
+}
+
+label[for="ltp_show_ajax_notify_y"], label[for="ltp_show_only_count_y"], label[for="ltp_unlike_previous_y"] {
+    margin-right: 15px;
+}
+.ltp-each-section {
+	margin: 20px 0 0;
+}
