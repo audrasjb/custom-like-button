@@ -1,4 +1,4 @@
-=== Key Figures ===
+=== Custom Like Button ===
 Contributors: audrasjb,whodunitagency
 Tags: like, button, custom, like this, aime, like button
 Requires at least: 4.7
