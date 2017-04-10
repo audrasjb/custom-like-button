@@ -7,7 +7,7 @@ Stable tag: 1.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A very customizable like button for your post or any custom post type.
+A very customizable like button for your posts or any custom post type.
 
 == Description ==
 

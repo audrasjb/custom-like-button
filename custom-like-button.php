@@ -8,7 +8,7 @@
  * @wordpress-plugin
  * Plugin Name:       Custom Like Button
  * Plugin URI:        https://jeanbaptisteaudras.com/portfolio/extension-wordpress-like-button/
- * Description:       A very customizable like button for your post or any custom post type.
+ * Description:       A very customizable like button for your posts or any custom post type.
  * Version:           1.0
  * Author:            Jean-Baptiste Audras, technical project manager @ Whodunit
  * Author URI:        http://jeanbaptisteaudras.com
@@ -39,13 +39,15 @@ if (is_admin()) {
  */
 require_once plugin_dir_path( __FILE__ ) . 'public/clb-public.php';
 
-/* TRUCS A RECUPERER */
+/**
+ * Fires on plugin activation
+ */
 function clbSetOptions() {
 	global $wpdb;
-	$mydbname = $wpdb->prefix . 'custom_like_button';
+	$database = $wpdb->prefix . 'custom_like_button';
 
-    if ($wpdb->get_var("show tables like '$mydbname'") != $mydbname) {
-		$sql = "CREATE TABLE " . $mydbname . " (
+    if ($wpdb->get_var("show tables like '$database'") != $database) {
+		$sql = "CREATE TABLE " . $database . " (
 			`id` bigint(11) NOT NULL AUTO_INCREMENT,
 			`post_id` int(11) NOT NULL,
 			`value` int(2) NOT NULL,
@@ -53,28 +55,27 @@ function clbSetOptions() {
 			`date_time` datetime NOT NULL,
 			PRIMARY KEY (`id`)
 		);";
-
 		require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
 		dbDelta($sql);	
 	}
-	add_option('ltp_show_ajax_notify','1');
-	add_option('ltp_login_message','Please login to vote.');
-	add_option('ltp_thanks_message','Thanks for voting.');
-	add_option('ltp_already_liked_message','You Already Liked.');
-	add_option('ltp_login_required', '1');
-	add_option('ltp_show_only_count', '0');
-	add_option('ltp_like_color', '#5890FF');
-	add_option('ltp_unlike_previous', '0');
-	add_option('ltp_unlike_message', '0');
+	add_option( 'ltp_show_ajax_notify','1');
+	add_option( 'ltp_login_message', __('Please login to vote.', 'custom-like-button') );
+	add_option( 'ltp_thanks_message', __('Thanks for voting.', 'custom-like-button') );
+	add_option( 'ltp_already_liked_message', __('You Already Liked.', 'custom-like-button') );
+	add_option( 'ltp_login_required', '1');
+	add_option( 'ltp_show_only_count', '0');
+	add_option( 'ltp_like_color', '#777777');
+	add_option( 'ltp_unlike_previous', '0');
+	add_option( 'ltp_unlike_message', '0');
 }
 register_activation_hook(__FILE__, 'clbSetOptions' );
 
-function ltpMenu() {
-  add_options_page('Like this Post | Admin Settings', 'Like This Post', 'administrator', 'like-this-post', 'ltpSettings');
+function clbAddMenu() {
+	add_options_page( __('Custom Like Button Settings', 'custom-like-button'), , __('custom Like Button Settings', 'custom-like-button'), 'administrator', 'custom-like-button', 'clbSettings');
 }
-add_filter('admin_menu', 'ltpMenu');
+add_filter('admin_menu', 'clbAddMenu');
 
-function ltpSettings() {
+function clbSettings() {
 	echo '<br/>';
 	echo '<h2>Like This Post Options</h2>';
 	$show_ajax_notify = get_option('ltp_show_ajax_notify');
